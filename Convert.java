@@ -24,7 +24,9 @@ public class Convert {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                line = line.replaceAll("\"", "");
+                line = line.replaceAll("\"", ""); // removing double quotes 
+                line = line.replaceAll("\\[", ""); // removing opening square bracket
+                line = line.replaceAll("\\]", ""); // removing closing square bracket
                 String[] lineWords = line.split(" ");
                 
                 try(BufferedWriter bw = new BufferedWriter(new FileWriter("output.csv", true))) {
